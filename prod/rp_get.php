@@ -11,27 +11,30 @@ if ($_GET) {
 }
 //a-h
 if ($pid == 1) {
-	$query = "SELECT recipe_title, recipe_id, permalink FROM wp_amd_zlrecipe_recipes where upper(recipe_title) > 'A' and upper(recipe_title) < 'H' order by recipe_title"; 	 
+	$query = "SELECT recipe_title, recipe_id, permalink, recipe_image FROM wp_amd_zlrecipe_recipes where upper(substring(recipe_title,1,1)) >= 'A' and upper(substring(recipe_title,1,1)) <= 'H' order by recipe_title"; 	 
 	$result = mysql_query($query) or die(mysql_error());
 	while($row = mysql_fetch_array($result)){
+		//echo "<img src=" . $row['recipe_image'] . ">";
 		echo "<a href=" . $row['permalink'] . ">" . $row['recipe_title'] . "</a>";
 		echo "<br />";
 	}
 }
 //i-p
 if ($pid == 2) {
-	$query = "SELECT recipe_title, recipe_id, permalink FROM wp_amd_zlrecipe_recipes where upper(recipe_title) > 'I' and upper(recipe_title) < 'P' order by recipe_title"; 	 
+	$query = "SELECT recipe_title, recipe_id, permalink, recipe_image FROM wp_amd_zlrecipe_recipes where upper(substring(recipe_title,1,1)) >= 'I' and upper(substring(recipe_title,1,1)) <= 'P' order by recipe_title"; 	 
 	$result = mysql_query($query) or die(mysql_error());
 	while($row = mysql_fetch_array($result)){
+		//echo "<img src=" . $row['recipe_image'] . ">";
 		echo "<a href=" . $row['permalink'] . ">" . $row['recipe_title'] . "</a>";
 		echo "<br />";
 	}
 }
 //q-z
 if ($pid == 3) {
-	$query = "SELECT recipe_title, recipe_id, permalink FROM wp_amd_zlrecipe_recipes where upper(recipe_title) > 'Q' and upper(recipe_title) < 'Z' order by recipe_title"; 	 
+	$query = "SELECT recipe_title, recipe_id, permalink, recipe_image FROM wp_amd_zlrecipe_recipes where upper(substring(recipe_title,1,1)) >= 'Q' and upper(substring(recipe_title,1,1)) <= 'Z' order by recipe_title"; 	 
 	$result = mysql_query($query) or die(mysql_error());
 	while($row = mysql_fetch_array($result)){
+		//echo "<img src=" . $row['recipe_image'] . ">";
 		echo "<a href=" . $row['permalink'] . ">" . $row['recipe_title'] . "</a>";
 		echo "<br />";
 	}
